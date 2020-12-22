@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgb(180,194,199);
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(57,57,57);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .answer-option {
+        display: flex;
+        margin: 1rem;
+
+        input {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+#heading {
+    border-bottom: 2px solid rgb(57,57,57);
+}
+
+.card {
+    width: 550px;
+    min-height: 500px;
+    height: 70vh;
+    background-color: rgb(250,250,250);
+    border-radius: 3px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    width: 10rem;
+    height: 2rem;
+    background-color: mintcream;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    outline: none;
+    color: rgb(57,57,57);
+
+    &:active {
+        box-shadow: none;
+    }
+}
+
+.success {
+    background-image: url('../assets/success.jpg');
+    min-width: 500px;
+    width: 45vw;
+}
+
+.fail {
+    background-image: url('../assets/wrongo.jpg');
+}
+
