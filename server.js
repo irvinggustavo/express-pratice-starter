@@ -21,3 +21,50 @@ Tasks
     question in our data array and compare the correct answer to the user's
     answer.
 */
+
+const express = require('express');
+const app = express();
+
+app.use(express.static('public'));
+
+app.get('/question', (req, res) => {
+    
+})
+
+
+
+app.listen(8080, () => {
+    console.log('server listening in port 8080');
+    console.log('using nodemon as dependecie');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
