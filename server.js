@@ -24,11 +24,22 @@ Tasks
 
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors')
+const data =require('./data.js');
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors())
 
 app.get('/question', (req, res) => {
-    
+let random = Math.floor(Math.random() * data.questions.length)
+    res.send(data.questions[random]);
+})
+
+app.post('/submit', (req, res) => {
+    console.log(req.body)
+    res.send('response') 
 })
 
 
