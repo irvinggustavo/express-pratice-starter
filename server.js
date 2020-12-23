@@ -22,60 +22,33 @@ Tasks
     answer.
 */
 
-const express = require('express');
+const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors')
-const data =require('./data.js');
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const data = require("./data.js");
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors())
+app.use(cors());
 
-app.get('/question', (req, res) => {
-let random = Math.floor(Math.random() * data.questions.length)
-    res.send(data.questions[random]);
-})
+let question;
 
-app.post('/submit', (req, res) => {
-    console.log(req.body)
-    res.send('response') 
-})
+app.get("/question", (req, res) => {
+  let random = Math.floor(Math.random() * data.questions.length);
+  question = data.questions[random];
+  res.send(question);
+});
 
-
+app.post("/submit", (req, res) => {
+  console.log(req.body);
+  console.log(question); 
+  req.body.answer === question.correctAnswer? 
+    res.sendFile( __dirname + '/public/success.html') 
+        : res.sendFile( __dirname + '/public/fail.html');
+});
 
 app.listen(8080, () => {
-    console.log('server listening in port 8080');
-    console.log('using nodemon as dependecie');
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  console.log("server listening in port 8080");
+  console.log("using nodemon as dependecie");
+});
